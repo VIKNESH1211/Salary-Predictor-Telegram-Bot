@@ -202,4 +202,5 @@ def fallback_handler(message):
 
 
 
-bot.polling()
+if __name__ == "__main__":
+    bot.polling(none_stop=True)
