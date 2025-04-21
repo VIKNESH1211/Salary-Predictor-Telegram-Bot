@@ -3,3 +3,4 @@ pandas
 joblib
 python-dotenv
 scikit-learn
+flask
