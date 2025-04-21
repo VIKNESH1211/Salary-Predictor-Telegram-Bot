@@ -200,4 +200,5 @@ def fallback_handler(message):
     bot.send_message(message.chat.id, "🙏 Please type /start to begin a new salary prediction session.")
 
 
-bot.polling()
+if __name__ == '__main__':
+    bot.infinity_polling()
