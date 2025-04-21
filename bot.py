@@ -212,8 +212,19 @@ def index():
     return "Bot is running!"
 
 def start_bot():
-    bot.polling(none_stop=True)
+    while True:
+        try:
+            print("Starting bot polling...")
+            bot.polling(none_stop=True)
+        except Exception as e:
+            print(f"[ERROR] Bot polling crashed: {e}")
+            import traceback
+            traceback.print_exc()
+            print("Restarting bot polling in 5 seconds...")
+            import time
+            time.sleep(5)
 
 if __name__ == "__main__":
     threading.Thread(target=start_bot).start()
     app.run(host="0.0.0.0", port=10000)
+
