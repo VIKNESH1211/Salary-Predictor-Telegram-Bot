@@ -1,81 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Start Salary Sage Bot</title>
+  <link rel="icon" href="salary-sage-logo.png" type="image/png" />
   <style>
     body {
-      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #b3d1ff, #e6f0ff);
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      text-align: center;
     }
+
     .container {
-      background: white;
+      background: #ffffff;
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      max-width: 400px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 420px;
       width: 90%;
+      transition: 0.3s ease-in-out;
     }
-    h1 {
+
+    .logo {
+      width: 80px;
       margin-bottom: 1rem;
-      color: #4a4a4a;
     }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
+
+    p.description {
+      color: #555;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
+      background: #007bff;
+      color: white;
       border: none;
       border-radius: 10px;
-      background: #4CAF50;
-      color: white;
       font-size: 1rem;
       cursor: pointer;
-      margin-top: 1rem;
+      transition: background 0.3s ease;
     }
+
+    button:hover {
+      background: #0056b3;
+    }
+
     #status {
       margin-top: 1.5rem;
       font-size: 1rem;
-      color: #555;
+      color: #333;
     }
+
     a {
-      color: #4CAF50;
+      color: #007bff;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>⚙️ Start Salary Sage Bot</h1>
+    <img src="salary-sage-logo.png" alt="Salary Sage Logo" class="logo" />
+    <h1>🧙‍♂️ Salary Sage</h1>
+    <p class="description">
+      Your intelligent salary prediction assistant powered by AI.<br>
+      Start the bot below to activate the server and begin your chat.
+    </p>
+
     <button onclick="startBot()" id="startBtn">Start Bot</button>
     <div id="status"></div>
   </div>
 
   <script>
-    const renderURL = "https://salary-predictor-telegram-bot.onrender.com/"; // Replace with your Render service URL
-    const botLink = "https://t.me/salary_sage_bot"; // Replace with your bot link
+    const renderURL = "https://salary-predictor-telegram-bot.onrender.com/"; // Replace with your actual render URL
+    const botLink = "https://t.me/salary_sage_bot"; // Replace with your actual bot link
 
     async function startBot() {
-        const statusDiv = document.getElementById("status");
-        const startBtn = document.getElementById("startBtn");
-        startBtn.disabled = true;
-        statusDiv.textContent = "⏳ Pinging the bot server...";
+      const statusDiv = document.getElementById("status");
+      const startBtn = document.getElementById("startBtn");
+      startBtn.disabled = true;
+      statusDiv.textContent = "⏳ Pinging the bot server...";
 
-        try {
-            const response = await fetch(renderURL);
-            if (response.ok) {
-                countdown();
-            } else {
-                statusDiv.textContent = `⚠️ Server responded with status: ${response.status}`;
-            }
-        } catch (error) {
-            statusDiv.textContent = `❌ Failed to ping bot server: ${error.message}`;
+      try {
+        const response = await fetch(renderURL);
+        if (response.ok) {
+          countdown(50); // estimated cold start time for Render
+        } else {
+          statusDiv.textContent = `⚠️ Server responded with status: ${response.status}`;
         }
+      } catch (error) {
+        statusDiv.textContent = `❌ Failed to ping bot server: ${error.message}`;
+      }
     }
 
     function countdown(seconds) {
@@ -84,7 +119,7 @@
 
       const interval = setInterval(() => {
         if (timeLeft > 0) {
-          statusDiv.textContent = `⏳ Starting bot in ${timeLeft} seconds...`;
+          statusDiv.textContent = `⏳ Bot server starting... ${timeLeft}s remaining`;
           timeLeft--;
         } else {
           clearInterval(interval);
