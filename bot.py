@@ -34,7 +34,7 @@ def predict_salary_with_pipeline(age, gender, edu_level, job_title, experience, 
 # Start command
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, "👋 Welcome to the Salary Predictor Bot!\nLet's get started.\n\n📍 Please enter your *Age*:", parse_mode="Markdown")
+    bot.send_message(message.chat.id, "👋 Welcome to the Salary Sage!\nLet's get started.\n\n📍 Please enter your *Age*:", parse_mode="Markdown")
     user_data[message.chat.id] = {}
 
 @bot.message_handler(func=lambda message: message.chat.id not in user_data)
