@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="salary-sage-logo.png" width="120" alt="Salary Sage Logo" />
+  <img src="/Ping_Render/salary-sage-logo.png" width="120" alt="Salary Sage Logo" />
 </p>
 
 # 🧙‍♂️ Salary Sage
@@ -58,7 +58,7 @@ Based on this information, it provides an estimated annual salary.
 - `company_size`
 - `skills` (derived)
 
-📂 **Dataset**: [Salary Prediction Dataset (Kaggle)](https://www.kaggle.com/datasets/paultimothymooney/software-developer-salaries-2023)
+📂 **Dataset**: [Salary Prediction Dataset (Kaggle)](https://www.kaggle.com/datasets/amirmahdiabbootalebi/salary-by-job-title-and-country/data)
 
 📊 **Architecture**:
 
