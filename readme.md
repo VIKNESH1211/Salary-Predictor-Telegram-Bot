@@ -62,7 +62,7 @@ Based on this information, it provides an estimated annual salary.
 
 📊 **Architecture**:
 
-![Architecture Diagram](architecture-diagram.png)
+![Architecture Diagram](/Ping_Render/architecture-diagram.png)
 
 ---
 
