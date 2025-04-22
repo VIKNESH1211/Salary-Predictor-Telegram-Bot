@@ -105,7 +105,8 @@
       const statusDiv = document.getElementById("status");
       const startBtn = document.getElementById("startBtn");
       startBtn.disabled = true;
-      statusDiv.textContent = "⏳ Pinging the bot server...";
+      statusDiv.textContent = "⏳ Pinging the bot server... \n This might take upto a 50 sec , we are waking up a sleeping server";
+      
 
       try {
         const response = await fetch(renderURL);
