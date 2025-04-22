@@ -114,7 +114,7 @@ This ensures a seamless experience despite Render's auto-sleep feature.
 ## 📌 To Run Locally
 
 ```bash
-git clone https://github.com/your-username/salary-sage.git
+git clone https://github.com/VIKNESH1211/Salary-Sage-Telegram-bot.git
 cd salary-sage
 pip install -r requirements.txt
 python bot.py
